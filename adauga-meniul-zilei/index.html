@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Adauga Meniul Zilei - Perla Restaurant</title>
+  <link rel="icon" href="https://perla-restaurant.ro/wp-content/uploads/2022/10/cropped-logo-32x32.jpeg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/pages/admin.css">
+</head>
+<body>
+  <div class="admin-page">
+    <div class="container admin-card admin-card-wide">
+      <h1>Adauga Meniul Zilei</h1>
+      <p class="subtitle">Editor meniu saptamanal — pagina ascunsa, fara link in meniu</p>
+
+      <div id="login-section">
+        <form id="login-form" class="admin-form">
+          <label for="password">Parola</label>
+          <input type="password" id="password" required autocomplete="current-password" placeholder="Parola din config.env">
+          <p id="login-error" class="admin-error"></p>
+          <button type="submit" class="btn btn-primary">Autentificare</button>
+        </form>
+      </div>
+
+      <div id="editor-section" style="display:none;">
+        <div class="admin-meta">
+          <label for="order-phone">Telefon comenzi</label>
+          <input type="text" id="order-phone" placeholder="0752540639">
+        </div>
+
+        <div id="admin-day-tabs" class="admin-day-tabs"></div>
+
+        <p id="catalog-count" class="catalog-count"></p>
+
+        <div class="admin-toolbar">
+          <button type="button" id="reset-categories" class="admin-btn">Reset categorii implicite</button>
+          <button type="button" id="add-category" class="admin-btn">+ Adauga categorie</button>
+          <label class="admin-btn admin-btn-file">
+            Importa JSON
+            <input type="file" id="import-json" accept=".json,application/json" hidden>
+          </label>
+        </div>
+
+        <div id="admin-categories"></div>
+        <p id="admin-message"></p>
+
+        <div class="admin-actions">
+          <button type="button" id="save-menu" class="admin-btn admin-btn-primary">Salveaza meniul</button>
+          <button type="button" id="logout" class="admin-btn">Deconectare</button>
+          <a href="/meniul-zilei/" class="admin-btn" target="_blank">Vezi pagina publica</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/adauga-meniul-zilei.js"></script>
+</body>
+</html>

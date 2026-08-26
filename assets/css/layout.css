@@ -1,0 +1,38 @@
+.container {
+  width: min(1140px, 92vw);
+  margin-inline: auto;
+}
+
+.page-section {
+  padding: 4rem 0;
+}
+
+.page-section.alt {
+  background: var(--color-bg-soft);
+}
+
+.content-block {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+
+.content-block p {
+  color: var(--color-cream-muted);
+  margin-bottom: 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 968px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}

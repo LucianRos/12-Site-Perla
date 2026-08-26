@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /adauga-meniul-zilei/
+Disallow: /api/
+Disallow: /config.env
+
+Sitemap: https://perla-restaurant.ro/sitemap.xml

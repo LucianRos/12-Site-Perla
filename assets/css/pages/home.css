@@ -1,0 +1,51 @@
+.hero-home {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: calc(var(--header-height) + 3rem) 0 4rem;
+}
+
+.hero-home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15,14,13,0.5) 0%, rgba(15,14,13,0.85) 100%),
+    url('https://perla-restaurant.ro/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-17-at-8.11.41-AM.jpeg') center/cover;
+  z-index: -1;
+}
+
+.hero-home h1 { margin-bottom: 0.5rem; }
+
+.hero-home .subtitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.home-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.home-section p {
+  color: var(--color-cream-muted);
+  max-width: 720px;
+}
+
+.home-section .contact-info {
+  margin-top: 1.5rem;
+}
+
+.home-section .contact-info a {
+  color: var(--color-gold);
+}
