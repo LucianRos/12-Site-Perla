@@ -2,12 +2,15 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
+  <script>
+(function(){var p=location.pathname.split('/').filter(Boolean),k=['contact','evenimente','meniu-nunti','catering','meniul-zilei','galerie-photo','adauga-meniul-zilei'],b='/';if(p.length&&k.indexOf(p[0])===-1&&p[0]!=='index.html')b='/'+p[0]+'/';var e=document.createElement('base');e.href=b;document.head.insertBefore(e,document.head.firstChild);})();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Adauga Meniul Zilei - Perla Restaurant</title>
   <link rel="icon" href="https://perla-restaurant.ro/wp-content/uploads/2022/10/cropped-logo-32x32.jpeg">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/pages/admin.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/admin.css">
 </head>
 <body>
   <div class="admin-page">
@@ -49,12 +52,12 @@
         <div class="admin-actions">
           <button type="button" id="save-menu" class="admin-btn admin-btn-primary">Salveaza meniul</button>
           <button type="button" id="logout" class="admin-btn">Deconectare</button>
-          <a href="/meniul-zilei/" class="admin-btn" target="_blank">Vezi pagina publica</a>
+          <a href="meniul-zilei/" class="admin-btn" target="_blank">Vezi pagina publica</a>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="/assets/js/adauga-meniul-zilei.js"></script>
+  <script src="assets/js/adauga-meniul-zilei.js"></script>
 </body>
 </html>

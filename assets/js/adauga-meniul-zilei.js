@@ -1,11 +1,11 @@
-const MENU_URL = '/data/meniul-zilei.json';
-const CONFIG_ENV_URL = '/config.env';
+const MENU_URL = 'data/meniul-zilei.json';
+const CONFIG_ENV_URL = 'config.env';
 const AUTH_KEY = 'perla_admin_auth';
 const API = {
-  login: '/api/login.php',
-  logout: '/api/logout.php',
-  check: '/api/check-auth.php',
-  save: '/api/save-meniul-zilei.php'
+  login: 'api/login.php',
+  logout: 'api/logout.php',
+  check: 'api/check-auth.php',
+  save: 'api/save-meniul-zilei.php'
 };
 
 const DEFAULT_CATEGORIES = [
