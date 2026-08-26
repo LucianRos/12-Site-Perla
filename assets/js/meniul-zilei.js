@@ -111,7 +111,7 @@ function initPage(data) {
 async function loadMenu() {
   const cardsEl = document.getElementById('menu-day-cards');
   try {
-    const res = await fetch('/data/meniul-zilei.json');
+    const res = await fetch('data/meniul-zilei.json');
     if (!res.ok) throw new Error('Eroare la incarcarea meniului');
     initPage(await res.json());
   } catch {

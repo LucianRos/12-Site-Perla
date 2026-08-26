@@ -1,0 +1,3 @@
+<Files "config.env">
+  Require all denied
+</Files>
