@@ -1,5 +1,201 @@
 {
-  "updatedAt": "",
+  "updatedAt": "2026-08-29T16:00:00.000Z",
   "orderPhone": "0752540639",
-  "days": []
+  "days": [
+    {
+      "id": "luni",
+      "label": "Luni 31.08.2026",
+      "categories": [
+        {
+          "title": "Meniu de baza (400 gr/ml)",
+          "items": [
+            { "name": "Ciorba ardeleneasca de porc", "price": 16 },
+            { "name": "Supa de dovlecel — de post", "price": 15 },
+            { "name": "Snitel de pui in fulgi de porumb cu orez cu legume", "price": 26 },
+            { "name": "Spanac cu oua ochiuri", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu italian (300 gr)",
+          "items": [
+            { "name": "Paste cu sos pesto si piept de pui", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu fitness (300 gr)",
+          "items": [
+            { "name": "Salata Perla", "price": 26 }
+          ]
+        },
+        {
+          "title": "Salata (150 gr)",
+          "items": [
+            { "name": "Varza", "price": 8 }
+          ]
+        },
+        {
+          "title": "Desert (aprox. 150 gr)",
+          "items": [
+            { "name": "Clatite cu finetti", "price": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marti",
+      "label": "Marti 1.09.2026",
+      "categories": [
+        {
+          "title": "Meniu de baza (400 gr/ml)",
+          "items": [
+            { "name": "Ciorba de varza cu afumatura", "price": 16 },
+            { "name": "Supa maramureseana — de post", "price": 15 },
+            { "name": "Ceafa de porc marinata la cuptor cu cartofi taranesti", "price": 26 },
+            { "name": "Stroganoff de vita cu cus-cus", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu italian (300 gr)",
+          "items": [
+            { "name": "Paste milaneze", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu fitness (300 gr)",
+          "items": [
+            { "name": "Salata cu somon afumat", "price": 26 }
+          ]
+        },
+        {
+          "title": "Salata (150 gr)",
+          "items": [
+            { "name": "Castraveti si gogosari murati", "price": 8 }
+          ]
+        },
+        {
+          "title": "Desert (aprox. 150 gr)",
+          "items": [
+            { "name": "Prajitura cu mar", "price": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miercuri",
+      "label": "Miercuri 2.09.2026",
+      "categories": [
+        {
+          "title": "Meniu de baza (400 gr/ml)",
+          "items": [
+            { "name": "Ciorba taraneasca de vacuta", "price": 16 },
+            { "name": "Supa de rosii cu taietei — de post", "price": 15 },
+            { "name": "Friptura de porc la tava cu piure de cartofi", "price": 26 },
+            { "name": "Salau crocant cu sos de usturoi si orez mexican", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu italian (300 gr)",
+          "items": [
+            { "name": "Spaghetti cu bacon si sos de rosii", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu fitness (300 gr)",
+          "items": [
+            { "name": "Salata greceasca", "price": 26 }
+          ]
+        },
+        {
+          "title": "Salata (150 gr)",
+          "items": [
+            { "name": "Castraveti murati", "price": 8 }
+          ]
+        },
+        {
+          "title": "Desert (aprox. 150 gr)",
+          "items": [
+            { "name": "Gomboti cu prune", "price": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joi",
+      "label": "Joi 3.09.2026",
+      "categories": [
+        {
+          "title": "Meniu de baza (400 gr/ml)",
+          "items": [
+            { "name": "Ciorba de burta", "price": 16 },
+            { "name": "Supa de fasole boabe — de post", "price": 15 },
+            { "name": "Sarmalute cu smantana", "price": 26 },
+            { "name": "Snitel de porc cu cartofi frantuzesti", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu italian (300 gr)",
+          "items": [
+            { "name": "Paste ragu bolognese", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu fitness (300 gr)",
+          "items": [
+            { "name": "Salata mixta", "price": 26 }
+          ]
+        },
+        {
+          "title": "Salata (150 gr)",
+          "items": [
+            { "name": "Varza cu morcovi", "price": 8 }
+          ]
+        },
+        {
+          "title": "Desert (aprox. 150 gr)",
+          "items": [
+            { "name": "Tarta cu fructe", "price": 10 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vineri",
+      "label": "Vineri 4.09.2026",
+      "categories": [
+        {
+          "title": "Meniu de baza (400 gr/ml)",
+          "items": [
+            { "name": "Ciorba radauteana", "price": 16 },
+            { "name": "Supa de cartofi cu ciuperci — de post", "price": 15 },
+            { "name": "Varza calita cu costita marinata la cuptor", "price": 26 },
+            { "name": "Piept de pui la gratar cu cartofi aurii", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu italian (300 gr)",
+          "items": [
+            { "name": "Paste cu sunca si ciuperci", "price": 26 }
+          ]
+        },
+        {
+          "title": "Meniu fitness (300 gr)",
+          "items": [
+            { "name": "Salata bulgareasca", "price": 26 }
+          ]
+        },
+        {
+          "title": "Salata (150 gr)",
+          "items": [
+            { "name": "Sfecla rosie", "price": 8 }
+          ]
+        },
+        {
+          "title": "Desert (aprox. 150 gr)",
+          "items": [
+            { "name": "Chec cu cacao", "price": 10 }
+          ]
+        }
+      ]
+    }
+  ]
 }

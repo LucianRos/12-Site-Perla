@@ -45,15 +45,18 @@
   color: var(--color-cream);
 }
 
-.menu-day-card-badge {
+.menu-day-card .menu-day-card-badge {
+  display: inline-block;
   font-size: 0.65rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-bg);
-  background: var(--color-gold);
-  padding: 0.2rem 0.6rem;
+  background: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  padding: 0.25rem 0.65rem;
   border-radius: 50px;
+  margin-top: 0;
 }
 
 .menu-day-card-preview {
