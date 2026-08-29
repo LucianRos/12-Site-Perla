@@ -27,7 +27,7 @@
   font-weight: 600;
 }
 
-.menu-day-card span {
+.menu-day-card span:not(.menu-day-card-badge) {
   display: block;
   font-size: 0.75rem;
   color: var(--color-cream-muted);

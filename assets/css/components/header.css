@@ -56,6 +56,33 @@
 .nav-links a:hover,
 .nav-links a.active { color: var(--color-cream); }
 
+.nav-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-gold);
+}
+
+.nav-social a:hover {
+  color: var(--color-gold-light);
+}
+
+.nav-social-icon {
+  flex-shrink: 0;
+}
+
+.nav-social span {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+}
+
+@media (min-width: 1025px) {
+  .nav-social span { display: none; }
+  .nav-social a { color: var(--color-cream-muted); }
+  .nav-social a:hover { color: var(--color-gold); }
+}
+
 .nav-dropdown-toggle {
   display: flex;
   align-items: center;
