@@ -144,6 +144,15 @@
   margin-bottom: 2rem;
 }
 
+.menu-nutrition-link a {
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.menu-nutrition-link a:hover {
+  color: var(--color-cream);
+}
+
 .menu-loading,
 .menu-error {
   text-align: center;

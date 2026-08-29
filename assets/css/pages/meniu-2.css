@@ -1,0 +1,183 @@
+.perla-menu {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.perla-menu__disclaimer {
+  text-align: center;
+  color: var(--color-cream-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(201, 169, 98, 0.05);
+}
+
+.perla-menu-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.perla-menu-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.perla-menu-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.perla-menu-card__intro {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-cream-muted);
+  font-style: italic;
+}
+
+.perla-dish {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.perla-dish:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.perla-dish__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.perla-dish__name {
+  flex: 1;
+  color: var(--color-cream);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.perla-dish__wt {
+  color: var(--color-cream-muted);
+  font-size: 0.85em;
+  font-weight: 300;
+}
+
+.perla-dish__price {
+  font-weight: 500;
+  color: var(--color-gold);
+  white-space: nowrap;
+  font-size: 1.05rem;
+}
+
+.perla-dish__price::after {
+  content: ' RON';
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-cream-muted);
+}
+
+.perla-dish__desc {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--color-cream-muted);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.perla-menu-card--allergen {
+  background: rgba(201, 169, 98, 0.06);
+  border-color: rgba(201, 169, 98, 0.25);
+}
+
+.perla-allergen-footnote p {
+  color: var(--color-cream-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.perla-allergen-footnote strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.perla-allergen-list {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+}
+
+.perla-allergen-list li {
+  color: var(--color-cream-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+  padding-left: 0.35rem;
+}
+
+.perla-allergen-notice {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem !important;
+}
+
+.perla-menu-legend {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+}
+
+.perla-menu-legend p {
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.perla-menu-legend p:last-child {
+  margin-bottom: 0;
+}
+
+.perla-menu-legend__sym {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .perla-menu-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .perla-menu-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .perla-menu-card {
+    padding: 1.25rem;
+  }
+
+  .perla-dish__row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .perla-dish__price {
+    align-self: flex-end;
+  }
+}
