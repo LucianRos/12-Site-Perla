@@ -1,10 +1,26 @@
-const DAY_IDS = ['luni', 'marti', 'miercuri', 'joi', 'vineri'];
 let menuData = null;
 
-function getTodayDayId() {
-  const day = new Date().getDay();
-  if (day >= 1 && day <= 5) return DAY_IDS[day - 1];
-  return 'luni';
+function parseDayDate(label) {
+  const match = label.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (!match) return null;
+  const [, day, month, year] = match;
+  return new Date(Number(year), Number(month) - 1, Number(day));
+}
+
+function getTodayDate() {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+}
+
+function isDayToday(day) {
+  const dayDate = parseDayDate(day.label);
+  if (!dayDate) return false;
+  const today = getTodayDate();
+  return dayDate.getTime() === today.getTime();
+}
+
+function getTodayDayId(days) {
+  return days.find(isDayToday)?.id ?? null;
 }
 
 function formatDate(iso) {
@@ -24,20 +40,12 @@ function formatPhone(phone) {
   return phone;
 }
 
-function getDayPreview(day) {
-  const firstCategory = day.categories[0];
-  if (!firstCategory?.items?.length) return 'Apasa pentru a vedea meniul';
-  const preview = firstCategory.items.slice(0, 2).map(i => i.name).join(', ');
-  return preview.length > 60 ? preview.slice(0, 57) + '...' : preview;
-}
-
 function renderDayCards(activeDayId) {
   const cardsEl = document.getElementById('menu-day-cards');
-  const todayId = getTodayDayId();
 
   cardsEl.innerHTML = menuData.days.map(day => {
     const isActive = day.id === activeDayId;
-    const isToday = day.id === todayId;
+    const isToday = isDayToday(day);
     return `
       <button type="button"
         class="menu-day-card${isActive ? ' active' : ''}${isToday ? ' today' : ''}"
@@ -45,7 +53,6 @@ function renderDayCards(activeDayId) {
         aria-pressed="${isActive}">
         <span class="menu-day-card-label">${day.label}</span>
         ${isToday ? '<span class="menu-day-card-badge">Astazi</span>' : ''}
-        <span class="menu-day-card-preview">${getDayPreview(day)}</span>
       </button>
     `;
   }).join('');
@@ -105,7 +112,8 @@ function initPage(data) {
   }
 
   document.getElementById('menu-loading')?.remove();
-  selectDay(getTodayDayId(), false);
+  const todayId = getTodayDayId(menuData.days);
+  selectDay(todayId || menuData.days[0]?.id, false);
 }
 
 async function loadMenu() {
