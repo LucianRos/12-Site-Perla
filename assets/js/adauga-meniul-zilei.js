@@ -16,6 +16,14 @@ const DEFAULT_CATEGORIES = [
   { title: 'Desert (aprox. 150 gr)', items: [{ name: '', price: null }] }
 ];
 
+const DAY_NAMES = {
+  luni: 'Luni',
+  marti: 'Marti',
+  miercuri: 'Miercuri',
+  joi: 'Joi',
+  vineri: 'Vineri'
+};
+
 let menuData = null;
 let activeDayIndex = 0;
 let usePhpBackend = null;
@@ -305,7 +313,40 @@ function syncGlobalFields() {
   menuData.orderPhone = document.getElementById('order-phone').value.trim();
 }
 
+function getDayDisplayName(day) {
+  return DAY_NAMES[day.id] || day.id || 'Zi';
+}
+
+function parseDateFromLabel(label) {
+  const match = (label || '').match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (!match) return '';
+  const [, day, month, year] = match;
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
+function buildDayLabel(dayId, isoDate) {
+  const dayName = DAY_NAMES[dayId] || dayId;
+  if (!isoDate) return dayName;
+  const [year, month, day] = isoDate.split('-');
+  return `${dayName} ${parseInt(day, 10)}.${parseInt(month, 10)}.${year}`;
+}
+
+function syncDayLabelFromDOM() {
+  const dateInput = document.querySelector('[data-field="day-date"]');
+  const day = menuData?.days?.[activeDayIndex];
+  if (!day) return;
+  day.label = buildDayLabel(day.id, dateInput?.value || '');
+}
+
+function updateActiveDayTabLabel() {
+  const tab = document.querySelector(`.admin-day-tab[data-index="${activeDayIndex}"]`);
+  if (tab && menuData?.days?.[activeDayIndex]) {
+    tab.textContent = menuData.days[activeDayIndex].label || `Zi ${activeDayIndex + 1}`;
+  }
+}
+
 function syncFromDOM() {
+  syncDayLabelFromDOM();
   const day = menuData.days[activeDayIndex];
   document.querySelectorAll('.admin-category').forEach(catEl => {
     const catIndex = parseInt(catEl.dataset.cat);
@@ -367,6 +408,15 @@ function renderCategory(cat, catIndex) {
 function renderEditor() {
   renderDayTabs();
   const day = menuData.days[activeDayIndex];
+  const dayName = getDayDisplayName(day);
+  const isoDate = parseDateFromLabel(day.label);
+  document.getElementById('admin-day-label').innerHTML = `
+    <label for="day-date-input">Data meniului (afisat pe site)</label>
+    <div class="admin-day-label-row">
+      <span class="admin-day-name">${escapeAttr(dayName)}</span>
+      <input type="date" id="day-date-input" data-field="day-date" value="${escapeAttr(isoDate)}">
+    </div>
+  `;
   document.getElementById('admin-categories').innerHTML =
     day.categories.map((cat, i) => renderCategory(cat, i)).join('');
   bindEditorEvents();
@@ -374,6 +424,18 @@ function renderEditor() {
 
 function bindEditorEvents() {
   document.querySelectorAll('.admin-item .autocomplete-wrap').forEach(bindProductAutocomplete);
+
+  const dateInput = document.querySelector('[data-field="day-date"]');
+  if (dateInput) {
+    dateInput.addEventListener('input', () => {
+      syncDayLabelFromDOM();
+      updateActiveDayTabLabel();
+    });
+    dateInput.addEventListener('change', () => {
+      syncDayLabelFromDOM();
+      updateActiveDayTabLabel();
+    });
+  }
 
   document.getElementById('admin-categories').querySelectorAll('input[data-field="title"], input[data-field="price"]').forEach(input => {
     input.addEventListener('input', syncFromDOM);

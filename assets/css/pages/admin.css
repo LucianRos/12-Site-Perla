@@ -38,6 +38,51 @@
   margin-bottom: 1rem;
 }
 
+.admin-day-label {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-day-label label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-cream-muted);
+  margin-bottom: 0.35rem;
+}
+
+.admin-day-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-day-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  min-width: 5rem;
+}
+
+.admin-day-label input[type="date"] {
+  max-width: 220px;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  color-scheme: dark;
+}
+
+.admin-day-label input[type="date"]:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
 .autocomplete-wrap {
   position: relative;
   width: 100%;
