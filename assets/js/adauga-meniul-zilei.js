@@ -5,7 +5,9 @@ const API = {
   login: 'api/login.php',
   logout: 'api/logout.php',
   check: 'api/check-auth.php',
-  save: 'api/save-meniul-zilei.php'
+  save: 'api/save-meniul-zilei.php',
+  facebookText: 'api/facebook-menu-text.php',
+  facebookPost: 'api/post-facebook-meniul-zilei.php'
 };
 
 const DEFAULT_CATEGORIES = [
@@ -505,6 +507,45 @@ function showMessage(text, type) {
   msgEl.className = type === 'error' ? 'admin-error' : 'admin-success';
 }
 
+async function copyFacebookMenuText() {
+  if (!(await detectPhpBackend())) {
+    showMessage('Copierea textului Facebook necesita PHP pe server.', 'error');
+    return;
+  }
+  try {
+    const res = await fetch(API.facebookText, { credentials: 'same-origin' });
+    const data = await parseJsonResponse(res);
+    if (!res.ok) throw new Error(data?.error || 'Eroare');
+    await navigator.clipboard.writeText(data.text);
+    showMessage('Text copiat pentru Facebook. Lipeste in Meta Business Suite.', 'success');
+  } catch (err) {
+    showMessage(err.message || 'Nu s-a putut copia textul', 'error');
+  }
+}
+
+async function postFacebookMenu(force = false) {
+  if (!(await detectPhpBackend())) {
+    showMessage('Postarea pe Facebook necesita PHP pe server.', 'error');
+    return;
+  }
+  if (!force && !confirm('Postezi meniul zilei pe pagina Facebook Perla?')) return;
+
+  try {
+    const url = force ? `${API.facebookPost}?force=1` : API.facebookPost;
+    const res = await fetch(url, { method: 'POST', credentials: 'same-origin' });
+    const data = await parseJsonResponse(res);
+    if (!res.ok) throw new Error(data?.error || 'Eroare la postare');
+
+    if (data.skipped) {
+      showMessage(data.reason || 'Postare omisa.', 'success');
+      return;
+    }
+    showMessage(`Postat pe Facebook: ${data.label}`, 'success');
+  } catch (err) {
+    showMessage(err.message || 'Nu s-a putut posta pe Facebook', 'error');
+  }
+}
+
 async function saveMenu() {
   syncFromDOM();
   syncGlobalFields();
@@ -581,6 +622,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     e.target.value = '';
   });
   document.getElementById('save-menu').addEventListener('click', saveMenu);
+  document.getElementById('copy-facebook').addEventListener('click', copyFacebookMenuText);
+  document.getElementById('post-facebook').addEventListener('click', () => postFacebookMenu(false));
   document.getElementById('logout').addEventListener('click', async () => {
     await logout();
     menuData = null;
