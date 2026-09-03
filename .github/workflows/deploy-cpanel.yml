@@ -25,3 +25,4 @@ jobs:
             **/.github/**
             **/README.md
             **/config.env
+            **/data/facebook-last-post.json
