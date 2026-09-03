@@ -43,6 +43,23 @@ function loadMenuDataForFacebook() {
     return is_array($data) ? $data : null;
 }
 
+function facebookCategoryEmoji($title) {
+    $t = mb_strtolower($title, 'UTF-8');
+    if (strpos($t, 'italian') !== false) {
+        return '🍝';
+    }
+    if (strpos($t, 'fitness') !== false) {
+        return '🥗';
+    }
+    if (strpos($t, 'salata') !== false) {
+        return '🥬';
+    }
+    if (strpos($t, 'desert') !== false) {
+        return '🍰';
+    }
+    return '🥣';
+}
+
 function formatMenuFacebookPost(array $day, array $menuData) {
     $env = facebookMenuEnv();
     $siteUrl = rtrim($env['SITE_URL'] ?? 'https://perla-restaurant.ro', '/');
@@ -52,8 +69,11 @@ function formatMenuFacebookPost(array $day, array $menuData) {
         ? substr($digits, 0, 4) . ' ' . substr($digits, 4, 3) . ' ' . substr($digits, 7)
         : $phone;
 
+    $separator = '━━━━━━━━━━━━━━━━';
     $lines = [];
-    $lines[] = 'Meniul zilei — ' . ($day['label'] ?? '');
+    $lines[] = '🍽️ MENIUL ZILEI';
+    $lines[] = '📅 ' . ($day['label'] ?? '');
+    $lines[] = $separator;
     $lines[] = '';
 
     foreach ($day['categories'] as $cat) {
@@ -63,9 +83,9 @@ function formatMenuFacebookPost(array $day, array $menuData) {
         if (!$items) {
             continue;
         }
-        $lines[] = $cat['title'];
+        $lines[] = facebookCategoryEmoji($cat['title'] ?? '') . ' ' . $cat['title'];
         foreach ($items as $item) {
-            $line = '- ' . $item['name'];
+            $line = '   • ' . $item['name'];
             if (isset($item['price']) && $item['price'] !== null && $item['price'] !== '') {
                 $line .= ' — ' . $item['price'] . ' lei';
             }
@@ -74,8 +94,9 @@ function formatMenuFacebookPost(array $day, array $menuData) {
         $lines[] = '';
     }
 
-    $lines[] = 'Comenzi: ' . $phoneFormatted;
-    $lines[] = $siteUrl . '/meniul-zilei/';
+    $lines[] = $separator;
+    $lines[] = '📞 Comenzi: ' . $phoneFormatted;
+    $lines[] = '🔗 ' . $siteUrl . '/meniul-zilei/';
 
     return trim(implode("\n", $lines));
 }
